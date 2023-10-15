@@ -1,0 +1,23 @@
+<input [(ngModel)]="searchQuery" (input)="onSearchChange()" placeholder="Search" />
+
+
+<table>
+  
+  <thead>
+    <tr>
+      <th (click)="sortData('title')">Title</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of currentPageData">
+      <td>{{ item.title }}</td>
+      
+    </tr>
+  </tbody>
+</table>
+
+<!-- logika paginacji -->
+<button *ngFor="let page of data.length / itemsPerPage | paginate" (click)="onPageChange(page)">
+  {{ page }}
+</button>
